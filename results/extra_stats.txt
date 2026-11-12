@@ -1,0 +1,58 @@
+== fresh vs ctrl, pooled (289 units): -0.7 [-3.8, +2.4]
+== django stratum, 130 units, resolved {'flat': 15, 'fresh': 8, 'ctrl': 9}, fresh vs flat -5.4 [-10.0, -0.8] (exploratory)
+== non-django stratum, 159 units, resolved {'flat': 14, 'fresh': 17, 'ctrl': 18}, fresh vs flat +1.9 [+0.0, +4.4] (exploratory)
+== seed 0: submitted vs step-limit runs and how many of each resolved
+  mask   submitted 33 (10 resolved), step_limit 112 (4 resolved)
+  summ   submitted 31 (12 resolved), step_limit 114 (3 resolved)
+  flat   submitted 32 (11 resolved), step_limit 113 (2 resolved)
+  fresh  submitted 31 (13 resolved), step_limit 114 (0 resolved)
+  ctrl   submitted 33 (10 resolved), step_limit 112 (5 resolved)
+== step kinds (read/edit/test)
+  seed 0 mask   4533/967/525
+  seed 0 summ   4521/932/321
+  seed 0 flat   4176/739/372
+  seed 0 fresh  4002/845/376
+  seed 0 ctrl   4037/692/373
+  both seeds flat   8265/1459/578
+  both seeds fresh  7803/1887/822
+  both seeds ctrl   7658/1587/761
+== seed 0: runs with at least one test step, django vs other repositories
+  mask   django 28/65  other 14/80
+  summ   django 27/65  other 16/80
+  flat   django 29/65  other 10/80
+  fresh  django 28/65  other 15/80
+  ctrl   django 27/65  other 12/80
+== django test-step share: dev pilots vs held-out flat seed 0
+  runs/dev_pilot1.jsonl: 1/274
+  runs/dev_pilot2.jsonl: 5/299
+  held-out flat seed 0: 258/3146
+== discordant pairs, fresh vs flat
+  seed 0: 10
+  seed 1: 10
+== tag lengths beyond the flat tag (characters)
+  fresh current 8 fresh older 43 ctrl 35
+== held-out gold preflight and the main comparisons without the tasks whose gold patch fails
+  gold resolved 142/145, fails: ['psf__requests-1921', 'pylint-dev__pylint-6528', 'pylint-dev__pylint-7080']
+  seed 0 without them, n=142: {'mask': 14, 'summ': 15, 'flat': 13, 'fresh': 13, 'ctrl': 15}
+    mask vs flat +0.7 [-2.8, +4.2]
+    summ vs flat +1.4 [-2.8, +5.6]
+    fresh vs flat +0.0 [-4.2, +4.2]
+    ctrl vs flat +1.4 [-2.8, +5.6]
+  pooled trio without them, 284 units: {'flat': 29, 'fresh': 25, 'ctrl': 27}
+    fresh vs flat -1.4 [-3.9, +1.1]
+    ctrl vs flat -0.7 [-3.9, +2.5]
+== same-seed fresh replicate (r1, window logging) against the original seed-0 fresh run
+  runs 145, common 145, original resolved 13, replicate resolved 16
+  flips 13 (gained 8, lost 5), both 8, either 21
+  same first three actions 67, same step count 100
+  window exposure: {'compacted': 125, 'counter_flags': 22, 'window_stale_test_at_compaction': 20, 'window_stale_result_at_compaction': 16, 'window_stale_result_any_step': 16, 'window_stale_result_without_current_test': 16, 'steps_after_first_compaction': 2587, 'steps_with_stale_result_in_window': 251, 'resolved_among_exposed': 1}
+== pooled fresh vs flat: task-clustered against unit-level bootstrap (Amendment 3 named the clustered one, after the seed-1 table was seen)
+  fresh vs flat clustered -1.4 [-3.82, +1.05]; unit-level -1.4 [-4.50, +1.73]
+  fresh vs ctrl clustered -0.7 [-3.79, +2.42]; unit-level -0.7 [-3.81, +2.42]
+  ctrl vs flat clustered -0.7 [-3.82, +2.42]; unit-level -0.7 [-3.46, +2.42]
+== seed 0: runs with a stale read record counted at a compaction
+  mask   98/145
+  summ   90/145
+  flat   86/145
+  fresh  99/145
+  ctrl   88/145

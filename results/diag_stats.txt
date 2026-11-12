@@ -1,0 +1,104 @@
+== The 40 diagnostic tasks (manifests/diag40.txt), flat arm, seed 0, 8000-token trigger
+main matrix, seed-0 flat (loop unchanged, replies not logged): 40 runs
+  replies 2606, with no command 1042 (40.0 pct)
+  no command after none 82 pct, after a command 14 pct
+  unbroken runs of no-command replies: 211, longest 79, of five or more 22
+  runs ending in ten or more no-command replies: 18
+  step limit 30, submitted 10, resolved 3 (at the step limit 0)
+  executed commands per run: median 33, total 1554 (read 1302, edit 199, test 53)
+  compacted 35, stale test retained (counter) 3
+  completion tokens per run 38702, wall minutes per run 45
+phase 1, label diag (loop unchanged, replies logged): 40 runs
+  replies 2939, with no command 1303 (44.3 pct)
+  no command after none 91 pct, after a command 9 pct
+  unbroken runs of no-command replies: 140, longest 77, of five or more 28
+  runs ending in ten or more no-command replies: 23
+  step limit 34, submitted 6, resolved 6 (at the step limit 4)
+  executed commands per run: median 38, total 1630 (read 1325, edit 242, test 63)
+  compacted 38, stale test retained (counter) 5
+  completion tokens per run 47369, wall minutes per run 26
+  logged no-command replies 1303: the word thought on at least 90 pct of lines 1235 (95 pct), cut off inside an open code block 68, other 0; finish reason {'length': 1303}; mean completion tokens 1200
+  replies with a command: median completion tokens 73, hit the limit 120 of 1630
+phase 2, label dropfix (text of a no-command reply replaced by a placeholder): 40 runs
+  replies 2717, with no command 288 (10.6 pct)
+  no command after none 49 pct, after a command 6 pct
+  unbroken runs of no-command replies: 148, longest 25, of five or more 8
+  runs ending in ten or more no-command replies: 0
+  step limit 31, submitted 9, resolved 5 (at the step limit 1)
+  executed commands per run: median 72, total 2420 (read 2010, edit 345, test 65)
+  compacted 34, stale test retained (counter) 4
+  completion tokens per run 21561, wall minutes per run 15
+  logged no-command replies 288: the word thought on at least 90 pct of lines 227 (79 pct), cut off inside an open code block 47, other 14; finish reason {'length': 287, 'stop': 1}; mean completion tokens 1196
+  replies with a command: median completion tokens 73, hit the limit 157 of 2420
+dropfix against diag, 40 tasks: resolved 5 against 6, difference -2.5 points [-12.5, +5.0], gained 1, lost 2, sign test p = 1.00
+  ending in ten or more no-command replies: only in diag 23, only in dropfix 0, sign test p = 2e-07
+dropfix against main, 40 tasks: resolved 5 against 3, difference +5.0 points [-5.0, +15.0], gained 3, lost 1, sign test p = 0.62
+  ending in ten or more no-command replies: only in main 18, only in dropfix 0, sign test p = 8e-06
+diag against main, 40 tasks: resolved 6 against 3, difference +7.5 points [-2.5, +17.5], gained 4, lost 1, sign test p = 0.38
+  ending in ten or more no-command replies: only in main 4, only in diag 9, sign test p = 0.3
+
+== All held-out tasks with a dropfix run (145 of 145)
+main matrix, seed-0 flat: 145 runs
+  replies 9799, with no command 4480 (45.7 pct)
+  no command after none 90 pct, after a command 10 pct
+  unbroken runs of no-command replies: 514, longest 79, of five or more 88
+  runs ending in ten or more no-command replies: 73
+  step limit 113, submitted 32, resolved 13 (at the step limit 2)
+  executed commands per run: median 31, total 5287 (read 4176, edit 739, test 372)
+  compacted 126, stale test retained (counter) 25
+  completion tokens per run 44618, wall minutes per run 49
+dropfix: 145 runs
+  replies 9434, with no command 1046 (11.1 pct)
+  no command after none 48 pct, after a command 7 pct
+  unbroken runs of no-command replies: 550, longest 39, of five or more 30
+  runs ending in ten or more no-command replies: 0
+  step limit 99, submitted 46, resolved 19 (at the step limit 3)
+  executed commands per run: median 70, total 8342 (read 6790, edit 1063, test 489)
+  compacted 123, stale test retained (counter) 27
+  completion tokens per run 19617, wall minutes per run 18
+  logged no-command replies 1046: the word thought on at least 90 pct of lines 877 (84 pct), cut off inside an open code block 108, other 61; finish reason {'length': 1039, 'stop': 7}; mean completion tokens 1192
+  replies with a command: median completion tokens 71, hit the limit 475 of 8342
+dropfix against main, 145 tasks: resolved 19 against 13, difference +4.1 points [-0.7, +9.0], gained 10, lost 4, sign test p = 0.18
+  ending in ten or more no-command replies: only in main 73, only in dropfix 0, sign test p = 2e-22
+
+== The 105 tasks outside the diagnostic 40
+dropfix against main, 105 tasks: resolved 14 against 10, difference +3.8 points [-1.9, +9.5], gained 7, lost 3, sign test p = 0.34
+  ending in ten or more no-command replies: only in main 55, only in dropfix 0, sign test p = 6e-17
+
+== Where the changed loop gains, and what it leaves the tag to act on (flat, seed 0, all held-out tasks)
+main matrix, seed-0 flat (window not logged): compacted 126 (resolved 6), never compacted 19 (resolved 7), stale test retained by the counter 25 (resolved 2), ran a test 39
+dropfix flat: compacted 123 (resolved 12), never compacted 22 (resolved 7), stale test retained by the counter 27 (resolved 4), ran a test 46
+  window held a stale test record 27, one with a result marker 21 (resolved 3), one with a result marker and no current-state test beside it 18
+
+== Amendment 5: fresh against flat under the changed loop, seed 0 (145 of 145 tasks)
+dropfix flat: 145 runs
+  replies 9434, with no command 1046 (11.1 pct)
+  no command after none 48 pct, after a command 7 pct
+  unbroken runs of no-command replies: 550, longest 39, of five or more 30
+  runs ending in ten or more no-command replies: 0
+  step limit 99, submitted 46, resolved 19 (at the step limit 3)
+  executed commands per run: median 70, total 8342 (read 6790, edit 1063, test 489)
+  compacted 123, stale test retained (counter) 27
+  completion tokens per run 19617, wall minutes per run 18
+  logged no-command replies 1046: the word thought on at least 90 pct of lines 877 (84 pct), cut off inside an open code block 108, other 61; finish reason {'length': 1039, 'stop': 7}; mean completion tokens 1192
+  replies with a command: median completion tokens 71, hit the limit 475 of 8342
+dropfix fresh: 145 runs
+  replies 10060, with no command 986 (9.8 pct)
+  no command after none 41 pct, after a command 7 pct
+  unbroken runs of no-command replies: 586, longest 23, of five or more 30
+  runs ending in ten or more no-command replies: 0
+  step limit 113, submitted 32, resolved 13 (at the step limit 3)
+  executed commands per run: median 72, total 9042 (read 7172, edit 1252, test 618)
+  compacted 128, stale test retained (counter) 34
+  completion tokens per run 22036, wall minutes per run 24
+  logged no-command replies 986: the word thought on at least 90 pct of lines 807 (82 pct), cut off inside an open code block 138, other 41; finish reason {'length': 980, 'stop': 6}; mean completion tokens 1194
+  replies with a command: median completion tokens 71, hit the limit 709 of 9042
+dropfix fresh against dropfix flat, 145 tasks: resolved 13 against 19, difference -4.1 points [-9.7, +1.4], gained 5, lost 11, sign test p = 0.21
+  ending in ten or more no-command replies: only in dropfix flat 0, only in dropfix fresh 0, sign test p = 1
+dropfix fresh: compacted 128 (resolved 7), never compacted 17 (resolved 6), stale test retained by the counter 34 (resolved 2), ran a test 47
+  window held a stale test record 31, one with a result marker 27 (resolved 0), one with a result marker and no current-state test beside it 27
+dropfix fresh against main fresh, 145 tasks: resolved 13 against 13, difference +0.0 points [-4.1, +4.1], gained 5, lost 5, sign test p = 1.00
+  ending in ten or more no-command replies: only in main fresh 77, only in dropfix fresh 0, sign test p = 1e-23
+  tasks where the fresh run retained a stale test record (34): fresh resolved 2, flat resolved 4
+  tasks whose outcome differs between the two arms 16, of which the fresh run retained a stale test record in 4
+  resolved by both 8, by one 16; both passes together 32 of 290

@@ -1,0 +1,45 @@
+== 1. Noise band of a 120-task single-run resolved rate (same arm, two runs)
+  flat seed 0 vs seed 1            n=144 discordant=11 observed full-set difference -2.1; 120-task draw: SD 2.5 points, 95% range [-6.7, +3.3]
+  fresh seed 0 vs seed 1           n=145 discordant=13 observed full-set difference +0.7; 120-task draw: SD 2.7 points, 95% range [-5.0, +5.8]
+  fresh seed 0 vs same-seed rerun  n=145 discordant=13 observed full-set difference -2.1; 120-task draw: SD 2.7 points, 95% range [-7.5, +3.3]
+  pooled per-task discordance between two runs of the same arm: 0.085; analytic SD of a 120-task two-run difference sqrt(disc/120) = 2.7 points
+== 2. Units needed for 80 percent power (two-sided 5 percent), paired sign test on discordant tasks
+  effect 2 points,   145 units: power 0.11
+  effect 2 points,   290 units: power 0.22
+  effect 2 points,   580 units: power 0.36
+  effect 2 points,  1160 units: power 0.64
+  effect 2 points,  2320 units: power 0.91
+  effect 1 points,   145 units: power 0.06
+  effect 1 points,   290 units: power 0.09
+  effect 1 points,   580 units: power 0.13
+  effect 1 points,  1160 units: power 0.23
+  effect 1 points,  2320 units: power 0.38
+  effect 1 points,  4640 units: power 0.64
+== 3. Mechanism probe in the window-logged fresh replicate
+  exposed      post-compaction steps   168: next action is a test 0.202, an edit 0.262
+  not_exposed  post-compaction steps  2419: next action is a test 0.061, an edit 0.209
+== 3b. Within-run control: runs with both exposed and non-exposed post-compaction steps
+  runs with both kinds of step: 11; mean test rate exposed 0.260 vs not exposed 0.237; within-run difference mean +0.023, higher in 6 runs, lower in 4
+== 3c. Same comparison for the first post-compaction step only (what the model sees right after compaction)
+  compactions with exposure 30: next step is a test 6/30; without 488: 39/488
+== 2b. Finer power grid (same simulation), units needed for 80 percent power
+  effect 2 points: about 1675 units (power 0.80)
+  effect 1 points: about 6744 units (power 0.80)
+== 3d. Between-arm manipulation check: test share of post-compaction steps, and of the three steps right after each compaction
+  seed 0 ctrl   post-compaction steps  2375: tests 0.109; first three steps after a compaction 1017: tests 0.108
+  seed 0 flat   post-compaction steps  2657: tests 0.091; first three steps after a compaction 1142: tests 0.095
+  seed 0 fresh  post-compaction steps  2643: tests 0.064; first three steps after a compaction 1143: tests 0.085
+  seed 0 mask   post-compaction steps  3498: tests 0.087; first three steps after a compaction 1660: tests 0.089
+  seed 0 summ   post-compaction steps  3271: tests 0.059; first three steps after a compaction 1087: tests 0.067
+  seed 1 ctrl   post-compaction steps  2634: tests 0.071; first three steps after a compaction 1332: tests 0.090
+  seed 1 flat   post-compaction steps  2503: tests 0.038; first three steps after a compaction 1270: tests 0.049
+  seed 1 fresh  post-compaction steps  3059: tests 0.102; first three steps after a compaction 1514: tests 0.122
+== 4. Figure 3 facts: tasks solved by k of the five flat/fresh runs; per-run resolved counts
+  solved by k runs: {1: 13, 2: 4, 3: 5, 4: 1, 5: 6} total tasks solved at least once: 29
+  per-run resolved: {'flat s0': 13, 'flat s1': 16, 'fresh s0': 13, 'fresh s1': 12, 'fresh s0 rerun': 16}
+== 5. Where resolutions happen: compaction and submission step (seed 0 and 1 matrix runs, 8K cap)
+  runs 1159: never compacted 124 (55 resolved), compacted 1035 (55 resolved)
+  median step of first compaction 14
+  resolving submissions 85: median step 14, 90th pct 36, max 61; by step 40: 78, by step 60: 84
+  runs still going after step 40: 972, of which later submitted a resolving patch: 7, resolved at the cap: 25
+  resolved among step-limit runs overall: 25 of 921

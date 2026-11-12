@@ -1,0 +1,885 @@
+{
+  "meta": {
+    "arms": [
+      "mask",
+      "summ",
+      "flat",
+      "fresh",
+      "ctrl"
+    ],
+    "seeds": [
+      0,
+      1
+    ],
+    "excluded_tasks": [
+      "psf__requests-1766",
+      "pylint-dev__pylint-7277"
+    ],
+    "bootstrap": {
+      "unit": "task",
+      "resamples": 5000,
+      "rng_seed": 1,
+      "ci": 0.95
+    },
+    "gen_tokens_definition": "completion + summ_completion",
+    "model_s_definition": "model_s + summ_s",
+    "estimated_cost": {
+      "label": "estimated",
+      "formula": "(model_s + summ_s) / 3600 * RATE_USD_PER_GPU_HOUR / assumed_concurrency",
+      "RATE_USD_PER_GPU_HOUR": 2.4984,
+      "assumed_concurrency": 24
+    },
+    "note": "all statistics use only tasks complete across all arms for that seed; per_run.csv lists every non-excluded run with in_common flag"
+  },
+  "per_seed": {
+    "0": {
+      "n_units": 145,
+      "n_tasks": 145,
+      "arms": {
+        "mask": {
+          "n": 145,
+          "resolved": 14,
+          "rate": 0.09655172413793103,
+          "rate_ci95": [
+            0.04827586206896552,
+            0.14482758620689656
+          ],
+          "mean_gen_tokens": 42463.68275862069,
+          "median_gen_tokens": 38454,
+          "mean_model_s": 2709.4207992274187,
+          "mean_tool_s": 37.3089545151283,
+          "step_limit": 112,
+          "compactions": 1713,
+          "runs_compacted": 131,
+          "tasks_any_test": 42,
+          "tasks_stale_test_at_compact": 24,
+          "tasks_stale_read_at_compact": 98,
+          "step_kinds": {
+            "read": 4533,
+            "edit": 967,
+            "test": 525
+          },
+          "estimated_mean_cost_usd_per_run": 0.07834741811099286
+        },
+        "summ": {
+          "n": 145,
+          "resolved": 15,
+          "rate": 0.10344827586206896,
+          "rate_ci95": [
+            0.05517241379310345,
+            0.15172413793103448
+          ],
+          "mean_gen_tokens": 45093.80689655172,
+          "median_gen_tokens": 37472,
+          "mean_model_s": 2945.0680312452646,
+          "mean_tool_s": 32.779448272441996,
+          "step_limit": 114,
+          "compactions": 806,
+          "runs_compacted": 126,
+          "tasks_any_test": 43,
+          "tasks_stale_test_at_compact": 26,
+          "tasks_stale_read_at_compact": 90,
+          "step_kinds": {
+            "read": 4521,
+            "edit": 932,
+            "test": 321
+          },
+          "estimated_mean_cost_usd_per_run": 0.08516155057017558
+        },
+        "flat": {
+          "n": 145,
+          "resolved": 13,
+          "rate": 0.0896551724137931,
+          "rate_ci95": [
+            0.04827586206896552,
+            0.13793103448275862
+          ],
+          "mean_gen_tokens": 44617.66206896552,
+          "median_gen_tokens": 39856,
+          "mean_model_s": 2846.4637736649347,
+          "mean_tool_s": 32.61843117681043,
+          "step_limit": 113,
+          "compactions": 1104,
+          "runs_compacted": 126,
+          "tasks_any_test": 39,
+          "tasks_stale_test_at_compact": 25,
+          "tasks_stale_read_at_compact": 86,
+          "step_kinds": {
+            "read": 4176,
+            "edit": 739,
+            "test": 372
+          },
+          "estimated_mean_cost_usd_per_run": 0.08231024412181104
+        },
+        "fresh": {
+          "n": 145,
+          "resolved": 13,
+          "rate": 0.0896551724137931,
+          "rate_ci95": [
+            0.041379310344827586,
+            0.13793103448275862
+          ],
+          "mean_gen_tokens": 46678.66206896552,
+          "median_gen_tokens": 46970,
+          "mean_model_s": 2825.011421976418,
+          "mean_tool_s": 26.5627931578406,
+          "step_limit": 114,
+          "compactions": 1181,
+          "runs_compacted": 135,
+          "tasks_any_test": 43,
+          "tasks_stale_test_at_compact": 32,
+          "tasks_stale_read_at_compact": 99,
+          "step_kinds": {
+            "read": 4002,
+            "edit": 845,
+            "test": 376
+          },
+          "estimated_mean_cost_usd_per_run": 0.0816899136188181
+        },
+        "ctrl": {
+          "n": 145,
+          "resolved": 15,
+          "rate": 0.10344827586206896,
+          "rate_ci95": [
+            0.05517241379310345,
+            0.15172413793103448
+          ],
+          "mean_gen_tokens": 45712.5724137931,
+          "median_gen_tokens": 47585,
+          "mean_model_s": 2781.835069297922,
+          "mean_tool_s": 31.53452042711192,
+          "step_limit": 112,
+          "compactions": 1190,
+          "runs_compacted": 124,
+          "tasks_any_test": 39,
+          "tasks_stale_test_at_compact": 23,
+          "tasks_stale_read_at_compact": 88,
+          "step_kinds": {
+            "read": 4037,
+            "edit": 692,
+            "test": 373
+          },
+          "estimated_mean_cost_usd_per_run": 0.08044139742053158
+        }
+      },
+      "vs_flat": {
+        "mask": {
+          "mean_diff": 0.006896551724137931,
+          "ci95": [
+            -0.027586206896551724,
+            0.041379310344827586
+          ],
+          "wins": 4,
+          "losses": 3
+        },
+        "summ": {
+          "mean_diff": 0.013793103448275862,
+          "ci95": [
+            -0.027586206896551724,
+            0.05517241379310345
+          ],
+          "wins": 6,
+          "losses": 4
+        },
+        "fresh": {
+          "mean_diff": 0,
+          "ci95": [
+            -0.041379310344827586,
+            0.041379310344827586
+          ],
+          "wins": 5,
+          "losses": 5
+        },
+        "ctrl": {
+          "mean_diff": 0.013793103448275862,
+          "ci95": [
+            -0.027586206896551724,
+            0.05517241379310345
+          ],
+          "wins": 6,
+          "losses": 4
+        }
+      },
+      "per_repo": {
+        "astropy": {
+          "n": 7,
+          "mask": 1,
+          "summ": 1,
+          "flat": 1,
+          "fresh": 2,
+          "ctrl": 2
+        },
+        "django": {
+          "n": 65,
+          "mask": 6,
+          "summ": 6,
+          "flat": 6,
+          "fresh": 3,
+          "ctrl": 5
+        },
+        "matplotlib": {
+          "n": 10,
+          "mask": 1,
+          "summ": 2,
+          "flat": 0,
+          "fresh": 2,
+          "ctrl": 1
+        },
+        "psf": {
+          "n": 2,
+          "mask": 0,
+          "summ": 0,
+          "flat": 0,
+          "fresh": 0,
+          "ctrl": 0
+        },
+        "pydata": {
+          "n": 7,
+          "mask": 1,
+          "summ": 1,
+          "flat": 1,
+          "fresh": 1,
+          "ctrl": 1
+        },
+        "pylint-dev": {
+          "n": 3,
+          "mask": 0,
+          "summ": 0,
+          "flat": 0,
+          "fresh": 0,
+          "ctrl": 0
+        },
+        "pytest-dev": {
+          "n": 6,
+          "mask": 2,
+          "summ": 3,
+          "flat": 2,
+          "fresh": 3,
+          "ctrl": 3
+        },
+        "scikit-learn": {
+          "n": 10,
+          "mask": 1,
+          "summ": 1,
+          "flat": 1,
+          "fresh": 1,
+          "ctrl": 1
+        },
+        "sphinx-doc": {
+          "n": 13,
+          "mask": 0,
+          "summ": 0,
+          "flat": 0,
+          "fresh": 0,
+          "ctrl": 0
+        },
+        "sympy": {
+          "n": 22,
+          "mask": 2,
+          "summ": 1,
+          "flat": 2,
+          "fresh": 1,
+          "ctrl": 2
+        }
+      },
+      "arms_present": [
+        "mask",
+        "summ",
+        "flat",
+        "fresh",
+        "ctrl"
+      ],
+      "n_tasks_seen": 145
+    },
+    "1": {
+      "n_units": 144,
+      "n_tasks": 144,
+      "arms": {
+        "flat": {
+          "n": 144,
+          "resolved": 16,
+          "rate": 0.1111111111111111,
+          "rate_ci95": [
+            0.0625,
+            0.16666666666666666
+          ],
+          "mean_gen_tokens": 53336.52777777778,
+          "median_gen_tokens": 60983.5,
+          "mean_model_s": 3238.869759074516,
+          "mean_tool_s": 26.175754047102398,
+          "step_limit": 121,
+          "compactions": 1317,
+          "runs_compacted": 130,
+          "tasks_any_test": 39,
+          "tasks_stale_test_at_compact": 24,
+          "tasks_stale_read_at_compact": 89,
+          "step_kinds": {
+            "read": 4089,
+            "edit": 720,
+            "test": 206
+          },
+          "estimated_mean_cost_usd_per_run": 0.09365731719990475
+        },
+        "fresh": {
+          "n": 144,
+          "resolved": 12,
+          "rate": 0.08333333333333333,
+          "rate_ci95": [
+            0.041666666666666664,
+            0.13194444444444445
+          ],
+          "mean_gen_tokens": 51182.90972222222,
+          "median_gen_tokens": 56738.0,
+          "mean_model_s": 3159.485682598419,
+          "mean_tool_s": 32.292201371656525,
+          "step_limit": 120,
+          "compactions": 1372,
+          "runs_compacted": 133,
+          "tasks_any_test": 39,
+          "tasks_stale_test_at_compact": 25,
+          "tasks_stale_read_at_compact": 96,
+          "step_kinds": {
+            "read": 3751,
+            "edit": 1032,
+            "test": 446
+          },
+          "estimated_mean_cost_usd_per_run": 0.09136179432180427
+        },
+        "ctrl": {
+          "n": 144,
+          "resolved": 12,
+          "rate": 0.08333333333333333,
+          "rate_ci95": [
+            0.041666666666666664,
+            0.13194444444444445
+          ],
+          "mean_gen_tokens": 49809.92361111111,
+          "median_gen_tokens": 54792.5,
+          "mean_model_s": 3049.3720158520673,
+          "mean_tool_s": 33.467519480321144,
+          "step_limit": 113,
+          "compactions": 1315,
+          "runs_compacted": 128,
+          "tasks_any_test": 48,
+          "tasks_stale_test_at_compact": 28,
+          "tasks_stale_read_at_compact": 89,
+          "step_kinds": {
+            "read": 3583,
+            "edit": 890,
+            "test": 388
+          },
+          "estimated_mean_cost_usd_per_run": 0.08817767412505562
+        }
+      },
+      "vs_flat": {
+        "fresh": {
+          "mean_diff": -0.027777777777777776,
+          "ci95": [
+            -0.06944444444444445,
+            0.013888888888888888
+          ],
+          "wins": 3,
+          "losses": 7
+        },
+        "ctrl": {
+          "mean_diff": -0.027777777777777776,
+          "ci95": [
+            -0.06944444444444445,
+            0.013888888888888888
+          ],
+          "wins": 3,
+          "losses": 7
+        }
+      },
+      "per_repo": {
+        "astropy": {
+          "n": 7,
+          "flat": 2,
+          "fresh": 2,
+          "ctrl": 2
+        },
+        "django": {
+          "n": 65,
+          "flat": 9,
+          "fresh": 5,
+          "ctrl": 4
+        },
+        "matplotlib": {
+          "n": 10,
+          "flat": 1,
+          "fresh": 0,
+          "ctrl": 0
+        },
+        "psf": {
+          "n": 2,
+          "flat": 0,
+          "fresh": 0,
+          "ctrl": 0
+        },
+        "pydata": {
+          "n": 7,
+          "flat": 1,
+          "fresh": 1,
+          "ctrl": 1
+        },
+        "pylint-dev": {
+          "n": 2,
+          "flat": 0,
+          "fresh": 0,
+          "ctrl": 0
+        },
+        "pytest-dev": {
+          "n": 6,
+          "flat": 2,
+          "fresh": 2,
+          "ctrl": 2
+        },
+        "scikit-learn": {
+          "n": 10,
+          "flat": 1,
+          "fresh": 1,
+          "ctrl": 1
+        },
+        "sphinx-doc": {
+          "n": 13,
+          "flat": 0,
+          "fresh": 0,
+          "ctrl": 0
+        },
+        "sympy": {
+          "n": 22,
+          "flat": 0,
+          "fresh": 1,
+          "ctrl": 2
+        }
+      },
+      "arms_present": [
+        "flat",
+        "fresh",
+        "ctrl"
+      ],
+      "n_tasks_seen": 145
+    }
+  },
+  "pooled": {
+    "n_units": 145,
+    "n_tasks": 145,
+    "arms": {
+      "mask": {
+        "n": 145,
+        "resolved": 14,
+        "rate": 0.09655172413793103,
+        "rate_ci95": [
+          0.04827586206896552,
+          0.14482758620689656
+        ],
+        "mean_gen_tokens": 42463.68275862069,
+        "median_gen_tokens": 38454,
+        "mean_model_s": 2709.4207992274187,
+        "mean_tool_s": 37.3089545151283,
+        "step_limit": 112,
+        "compactions": 1713,
+        "runs_compacted": 131,
+        "tasks_any_test": 42,
+        "tasks_stale_test_at_compact": 24,
+        "tasks_stale_read_at_compact": 98,
+        "step_kinds": {
+          "read": 4533,
+          "edit": 967,
+          "test": 525
+        },
+        "estimated_mean_cost_usd_per_run": 0.07834741811099286
+      },
+      "summ": {
+        "n": 145,
+        "resolved": 15,
+        "rate": 0.10344827586206896,
+        "rate_ci95": [
+          0.05517241379310345,
+          0.15172413793103448
+        ],
+        "mean_gen_tokens": 45093.80689655172,
+        "median_gen_tokens": 37472,
+        "mean_model_s": 2945.0680312452646,
+        "mean_tool_s": 32.779448272441996,
+        "step_limit": 114,
+        "compactions": 806,
+        "runs_compacted": 126,
+        "tasks_any_test": 43,
+        "tasks_stale_test_at_compact": 26,
+        "tasks_stale_read_at_compact": 90,
+        "step_kinds": {
+          "read": 4521,
+          "edit": 932,
+          "test": 321
+        },
+        "estimated_mean_cost_usd_per_run": 0.08516155057017558
+      },
+      "flat": {
+        "n": 145,
+        "resolved": 13,
+        "rate": 0.0896551724137931,
+        "rate_ci95": [
+          0.04827586206896552,
+          0.13793103448275862
+        ],
+        "mean_gen_tokens": 44617.66206896552,
+        "median_gen_tokens": 39856,
+        "mean_model_s": 2846.4637736649347,
+        "mean_tool_s": 32.61843117681043,
+        "step_limit": 113,
+        "compactions": 1104,
+        "runs_compacted": 126,
+        "tasks_any_test": 39,
+        "tasks_stale_test_at_compact": 25,
+        "tasks_stale_read_at_compact": 86,
+        "step_kinds": {
+          "read": 4176,
+          "edit": 739,
+          "test": 372
+        },
+        "estimated_mean_cost_usd_per_run": 0.08231024412181104
+      },
+      "fresh": {
+        "n": 145,
+        "resolved": 13,
+        "rate": 0.0896551724137931,
+        "rate_ci95": [
+          0.041379310344827586,
+          0.13793103448275862
+        ],
+        "mean_gen_tokens": 46678.66206896552,
+        "median_gen_tokens": 46970,
+        "mean_model_s": 2825.011421976418,
+        "mean_tool_s": 26.5627931578406,
+        "step_limit": 114,
+        "compactions": 1181,
+        "runs_compacted": 135,
+        "tasks_any_test": 43,
+        "tasks_stale_test_at_compact": 32,
+        "tasks_stale_read_at_compact": 99,
+        "step_kinds": {
+          "read": 4002,
+          "edit": 845,
+          "test": 376
+        },
+        "estimated_mean_cost_usd_per_run": 0.0816899136188181
+      },
+      "ctrl": {
+        "n": 145,
+        "resolved": 15,
+        "rate": 0.10344827586206896,
+        "rate_ci95": [
+          0.05517241379310345,
+          0.15172413793103448
+        ],
+        "mean_gen_tokens": 45712.5724137931,
+        "median_gen_tokens": 47585,
+        "mean_model_s": 2781.835069297922,
+        "mean_tool_s": 31.53452042711192,
+        "step_limit": 112,
+        "compactions": 1190,
+        "runs_compacted": 124,
+        "tasks_any_test": 39,
+        "tasks_stale_test_at_compact": 23,
+        "tasks_stale_read_at_compact": 88,
+        "step_kinds": {
+          "read": 4037,
+          "edit": 692,
+          "test": 373
+        },
+        "estimated_mean_cost_usd_per_run": 0.08044139742053158
+      }
+    },
+    "vs_flat": {
+      "mask": {
+        "mean_diff": 0.006896551724137931,
+        "ci95": [
+          -0.027586206896551724,
+          0.041379310344827586
+        ],
+        "wins": 4,
+        "losses": 3
+      },
+      "summ": {
+        "mean_diff": 0.013793103448275862,
+        "ci95": [
+          -0.027586206896551724,
+          0.05517241379310345
+        ],
+        "wins": 6,
+        "losses": 4
+      },
+      "fresh": {
+        "mean_diff": 0,
+        "ci95": [
+          -0.041379310344827586,
+          0.041379310344827586
+        ],
+        "wins": 5,
+        "losses": 5
+      },
+      "ctrl": {
+        "mean_diff": 0.013793103448275862,
+        "ci95": [
+          -0.027586206896551724,
+          0.05517241379310345
+        ],
+        "wins": 6,
+        "losses": 4
+      }
+    },
+    "per_repo": {
+      "astropy": {
+        "n": 7,
+        "mask": 1,
+        "summ": 1,
+        "flat": 1,
+        "fresh": 2,
+        "ctrl": 2
+      },
+      "django": {
+        "n": 65,
+        "mask": 6,
+        "summ": 6,
+        "flat": 6,
+        "fresh": 3,
+        "ctrl": 5
+      },
+      "matplotlib": {
+        "n": 10,
+        "mask": 1,
+        "summ": 2,
+        "flat": 0,
+        "fresh": 2,
+        "ctrl": 1
+      },
+      "psf": {
+        "n": 2,
+        "mask": 0,
+        "summ": 0,
+        "flat": 0,
+        "fresh": 0,
+        "ctrl": 0
+      },
+      "pydata": {
+        "n": 7,
+        "mask": 1,
+        "summ": 1,
+        "flat": 1,
+        "fresh": 1,
+        "ctrl": 1
+      },
+      "pylint-dev": {
+        "n": 3,
+        "mask": 0,
+        "summ": 0,
+        "flat": 0,
+        "fresh": 0,
+        "ctrl": 0
+      },
+      "pytest-dev": {
+        "n": 6,
+        "mask": 2,
+        "summ": 3,
+        "flat": 2,
+        "fresh": 3,
+        "ctrl": 3
+      },
+      "scikit-learn": {
+        "n": 10,
+        "mask": 1,
+        "summ": 1,
+        "flat": 1,
+        "fresh": 1,
+        "ctrl": 1
+      },
+      "sphinx-doc": {
+        "n": 13,
+        "mask": 0,
+        "summ": 0,
+        "flat": 0,
+        "fresh": 0,
+        "ctrl": 0
+      },
+      "sympy": {
+        "n": 22,
+        "mask": 2,
+        "summ": 1,
+        "flat": 2,
+        "fresh": 1,
+        "ctrl": 2
+      }
+    },
+    "note": "units from seeds with all five arms"
+  },
+  "pooled_trio": {
+    "n_units": 289,
+    "n_tasks": 145,
+    "arms": {
+      "flat": {
+        "n": 289,
+        "resolved": 29,
+        "rate": 0.10034602076124567,
+        "rate_ci95": [
+          0.05862068965517241,
+          0.1453287197231834
+        ],
+        "mean_gen_tokens": 48962.010380622836,
+        "median_gen_tokens": 53478,
+        "mean_model_s": 3041.9878632807813,
+        "mean_tool_s": 29.408239112180823,
+        "step_limit": 234,
+        "compactions": 2421,
+        "runs_compacted": 256,
+        "tasks_any_test": 78,
+        "tasks_stale_test_at_compact": 49,
+        "tasks_stale_read_at_compact": 175,
+        "step_kinds": {
+          "read": 8265,
+          "edit": 1459,
+          "test": 578
+        },
+        "estimated_mean_cost_usd_per_run": 0.08796414904653593
+      },
+      "fresh": {
+        "n": 289,
+        "resolved": 25,
+        "rate": 0.08650519031141868,
+        "rate_ci95": [
+          0.04861111111111111,
+          0.12758620689655173
+        ],
+        "mean_gen_tokens": 48922.993079584776,
+        "median_gen_tokens": 52254,
+        "mean_model_s": 2991.669877096031,
+        "mean_tool_s": 29.4175847937904,
+        "step_limit": 234,
+        "compactions": 2553,
+        "runs_compacted": 268,
+        "tasks_any_test": 82,
+        "tasks_stale_test_at_compact": 57,
+        "tasks_stale_read_at_compact": 195,
+        "step_kinds": {
+          "read": 7753,
+          "edit": 1877,
+          "test": 822
+        },
+        "estimated_mean_cost_usd_per_run": 0.08650912061269357
+      },
+      "ctrl": {
+        "n": 289,
+        "resolved": 27,
+        "rate": 0.09342560553633218,
+        "rate_ci95": [
+          0.05517241379310345,
+          0.13793103448275862
+        ],
+        "mean_gen_tokens": 47754.15916955017,
+        "median_gen_tokens": 51916,
+        "mean_model_s": 2915.1406758854546,
+        "mean_tool_s": 32.49767566469714,
+        "step_limit": 225,
+        "compactions": 2505,
+        "runs_compacted": 252,
+        "tasks_any_test": 87,
+        "tasks_stale_test_at_compact": 51,
+        "tasks_stale_read_at_compact": 177,
+        "step_kinds": {
+          "read": 7620,
+          "edit": 1582,
+          "test": 761
+        },
+        "estimated_mean_cost_usd_per_run": 0.08429615121102106
+      }
+    },
+    "vs_flat": {
+      "fresh": {
+        "mean_diff": -0.01384083044982699,
+        "ci95": [
+          -0.03819444444444445,
+          0.010452961672473868
+        ],
+        "wins": 8,
+        "losses": 12
+      },
+      "ctrl": {
+        "mean_diff": -0.006920415224913495,
+        "ci95": [
+          -0.03819444444444445,
+          0.02422145328719723
+        ],
+        "wins": 9,
+        "losses": 11
+      }
+    },
+    "per_repo": {
+      "astropy": {
+        "n": 14,
+        "flat": 3,
+        "fresh": 4,
+        "ctrl": 4
+      },
+      "django": {
+        "n": 130,
+        "flat": 15,
+        "fresh": 8,
+        "ctrl": 9
+      },
+      "matplotlib": {
+        "n": 20,
+        "flat": 1,
+        "fresh": 2,
+        "ctrl": 1
+      },
+      "psf": {
+        "n": 4,
+        "flat": 0,
+        "fresh": 0,
+        "ctrl": 0
+      },
+      "pydata": {
+        "n": 14,
+        "flat": 2,
+        "fresh": 2,
+        "ctrl": 2
+      },
+      "pylint-dev": {
+        "n": 5,
+        "flat": 0,
+        "fresh": 0,
+        "ctrl": 0
+      },
+      "pytest-dev": {
+        "n": 12,
+        "flat": 4,
+        "fresh": 5,
+        "ctrl": 5
+      },
+      "scikit-learn": {
+        "n": 20,
+        "flat": 2,
+        "fresh": 2,
+        "ctrl": 2
+      },
+      "sphinx-doc": {
+        "n": 26,
+        "flat": 0,
+        "fresh": 0,
+        "ctrl": 0
+      },
+      "sympy": {
+        "n": 44,
+        "flat": 2,
+        "fresh": 2,
+        "ctrl": 4
+      }
+    },
+    "note": "flat, fresh, ctrl over every seed that ran them"
+  },
+  "step_kinds_overall": {
+    "read": 21269,
+    "edit": 4175,
+    "test": 1967
+  }
+}
